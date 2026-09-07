@@ -30,6 +30,22 @@ body{background-color:#FFF8E8;background-image:radial-gradient(#E8DDBD 1px,trans
 .entry{background:linear-gradient(100deg,#F2FAF7,#FFF7DE);border-color:#CFC19B;border-left-color:#2F8A78;box-shadow:0 2px 5px #0000000A}.entry:nth-child(even){background:linear-gradient(100deg,#FFF1EA,#FFF9E7);border-left-color:#D46A3D}
 .upcoming{background:linear-gradient(145deg,#FFFFFF,#F4FBF8);border-color:#BFD9D2;box-shadow:0 5px 0 #C8DED8}.upcoming h2{color:#245F58}.upItem{margin-top:7px;border:1px solid #E2D5B6;border-radius:10px;background:#FFFDF6}.upItem:nth-child(even){background:#EFF8F5}.upDate{color:#A33D27}.upCat{display:inline-block;padding:3px 8px;border-radius:999px;background:#F5EACD;color:#5C523E}
 @media(max-width:760px){.head{padding:14px 10px}.calendar{padding:6px}.monthTitle{padding:8px 18px}}
+
+/* Monthly picture popup — keep Welcome + Continue fully visible on phones */
+.monthSurprise{height:100vh;height:100dvh;padding:12px;}
+.surpriseCard{display:flex;flex-direction:column;max-height:calc(100vh - 24px);max-height:calc(100dvh - 24px);overflow:hidden;}
+.surpriseCard img{flex:1 1 auto;min-height:0;width:100%;height:auto;max-height:calc(100vh - 125px);max-height:calc(100dvh - 125px);object-fit:contain;}
+.surpriseInfo{flex:0 0 auto;padding:10px 14px 12px;}
+.surpriseInfo h2{margin:0 0 8px;}
+.surpriseInfo button{margin:0;}
+@media(max-width:520px){
+  .monthSurprise{padding:6px;}
+  .surpriseCard{width:min(98vw,700px);max-height:calc(100vh - 12px);max-height:calc(100dvh - 12px);}
+  .surpriseCard img{max-height:calc(100vh - 120px);max-height:calc(100dvh - 120px);}
+  .surpriseInfo{padding:8px 10px 10px;}
+  .surpriseInfo h2{font-size:clamp(22px,6vw,30px);margin:0 0 7px;}
+  .surpriseInfo button{padding:10px 18px;font-size:16px;}
+}
 </style>
 </head>
 <body><div id="app"><div class="top"><div class="brand"><span class="stamp">✓</span>Ana María Palacios Yearly Planner</div><div class="tools"><button id="minus">A−</button> <button id="plus">A+</button></div></div><main class="planner"><div class="head"><h1>Ana María Palacios’s Yearly Planner</h1><p>by Dad</p></div><div class="toolbar"><button class="light" onclick="moveMonth(-1)">← Previous</button><button class="secondary" onclick="goToday()">Today</button><button class="light" onclick="moveMonth(1)">Next →</button><select id="monthPick" onchange="pickDate()"></select><select id="yearPick" onchange="pickDate()"></select><button class="primary" onclick="openModal()">＋ Add Dated Item</button></div><h2 class="monthTitle" id="monthTitle"></h2><div class="calendar" id="calendar"></div><section class="upcoming"><h2>Upcoming Important Dates</h2><p>The next 12 unfinished items from today forward.</p><div id="upcoming"></div></section><div class="footer">Created for Ana María Palacios — senior year, sweet moments, goals, and bright plans.</div></main></div>
@@ -76,7 +92,7 @@ function showMonthSurprise(monthIndex,year){
   const overlay=document.createElement('div');
   overlay.className='monthSurprise';overlay.id='monthSurprise';
   const monthName=MONTHS[monthIndex];
-  overlay.innerHTML=`<div class="surpriseCard"><div class="surpriseBadge">${monthName} ${year}</div><img src="${item.src}" alt="${esc(item.title)} month surprise"><div class="surpriseInfo"><h2>Welcome to ${monthName}!</h2><p>${esc(item.title)} — a monthly surprise from Dad.</p><button onclick="closeMonthSurprise()">Continue to ${monthName} →</button></div></div>`;
+  overlay.innerHTML=`<div class="surpriseCard"><div class="surpriseBadge">${monthName} ${year}</div><img src="${item.src}" alt="${esc(item.title)} month surprise"><div class="surpriseInfo"><h2>Welcome to ${monthName}!</h2><button onclick="closeMonthSurprise()">Continue to ${monthName} &gt;&gt;</button></div></div>`;
   document.body.appendChild(overlay);
 }
 function closeMonthSurprise(){document.getElementById('monthSurprise')?.remove()}
