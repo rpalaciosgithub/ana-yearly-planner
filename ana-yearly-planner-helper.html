@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#7c3aed">
-<title>Ana Yearly Planner — iPhone Step-by-Step Helper v4</title>
+<title>Ana Yearly Planner — Step-by-Step Helper v6</title>
 <style>
 :root{
   --scale:1;
@@ -13,7 +13,6 @@
   --blue:#2563eb;
   --green:#16a34a;
   --soft:#f6f3ff;
-  --line:#e7e2f3;
   --shadow:0 18px 50px rgba(50,35,90,.15);
 }
 *{box-sizing:border-box}
@@ -28,158 +27,66 @@ html,body{
 }
 body{font-size:calc(18px * var(--scale))}
 button,a{font:inherit}
-.shell{
-  max-width:760px;margin:0 auto;
-  padding:max(18px,env(safe-area-inset-top)) 14px max(30px,env(safe-area-inset-bottom))
-}
-.topbar{
-  display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:14px
-}
+.shell{max-width:760px;margin:0 auto;padding:max(18px,env(safe-area-inset-top)) 14px max(30px,env(safe-area-inset-bottom))}
+.topbar{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:14px}
 .brand{font-weight:950;font-size:1.02em}
+.version{font-size:.72em;color:#6b6478;font-weight:850;margin-left:6px}
 .fonttools{display:flex;gap:8px}
-.smallbtn{
-  min-width:52px;min-height:44px;border:1px solid #d8d3e6;
-  background:#fff;color:#3d3554;border-radius:14px;font-weight:900;
-  box-shadow:0 5px 16px rgba(55,45,80,.08)
-}
-.card{
-  background:#fff;border:1px solid rgba(124,58,237,.12);
-  border-radius:28px;box-shadow:var(--shadow);overflow:hidden
-}
-.hero{
-  padding:22px 20px 18px;
-  background:linear-gradient(135deg,#6d28d9,#8b5cf6 58%,#2563eb);
-  color:#fff;text-align:center
-}
-.hero .eyebrow{
-  font-weight:850;opacity:.92;font-size:.78em;letter-spacing:.8px;text-transform:uppercase
-}
-.hero h1{
-  font-size:clamp(30px,7vw,48px);line-height:1.02;
-  margin:8px 0 9px;font-weight:950
-}
-.hero p{margin:0 auto;max-width:600px;font-size:1.02em;line-height:1.45}
+.smallbtn{min-width:52px;min-height:44px;border:1px solid #d8d3e6;background:#fff;color:#3d3554;border-radius:14px;font-weight:900;box-shadow:0 5px 16px rgba(55,45,80,.08)}
+.card{background:#fff;border:1px solid rgba(124,58,237,.12);border-radius:28px;box-shadow:var(--shadow);overflow:hidden}
+.hero{padding:22px 20px 18px;background:linear-gradient(135deg,#6d28d9,#8b5cf6 58%,#2563eb);color:#fff;text-align:center}
+.hero .eyebrow{font-weight:850;opacity:.92;font-size:.78em;letter-spacing:.8px;text-transform:uppercase}
+.hero h1{font-size:clamp(30px,7vw,48px);line-height:1.02;margin:8px 0 9px;font-weight:950}
+.hero p{margin:0 auto;max-width:620px;font-size:1.02em;line-height:1.45}
 .progress-wrap{padding:16px 20px 0}
-.step-label{
-  color:var(--purple);font-weight:950;text-align:center;
-  margin-bottom:8px;font-size:1.05em
-}
-.progress{
-  height:13px;background:#ece8f5;border-radius:999px;overflow:hidden
-}
-.progress > div{
-  height:100%;width:0;background:linear-gradient(90deg,var(--purple),var(--blue));
-  transition:width .25s ease
-}
-.stage{
-  min-height:445px;padding:26px 22px 24px;text-align:center;
-  display:flex;flex-direction:column;justify-content:center
-}
-.icon{
-  width:108px;height:108px;border-radius:28px;margin:0 auto 18px;
-  display:grid;place-items:center;font-size:58px;background:var(--soft);
-  border:1px solid #e7dcff;box-shadow:inset 0 0 0 6px rgba(255,255,255,.7)
-}
-.stage h2{
-  font-size:clamp(29px,6vw,43px);line-height:1.07;
-  margin:0 0 16px;font-weight:950
-}
-.stage p{
-  font-size:clamp(20px,4.5vw,28px);line-height:1.45;
-  margin:0 auto 14px;max-width:630px
-}
-.tap{
-  display:inline-block;background:#f3efff;border:2px solid #d9ccff;
-  border-radius:13px;padding:3px 9px;font-weight:950;color:#5b21b6;
-  white-space:nowrap
-}
-.note{
-  margin:14px auto 0;max-width:625px;padding:14px 15px;border-radius:18px;
-  background:#fff8df;border:1px solid #f6d46a;color:#614b00;
-  font-size:.86em;line-height:1.42;text-align:left
-}
+.step-label{color:var(--purple);font-weight:950;text-align:center;margin-bottom:8px;font-size:1.05em}
+.progress{height:13px;background:#ece8f5;border-radius:999px;overflow:hidden}
+.progress>div{height:100%;width:0;background:linear-gradient(90deg,var(--purple),var(--blue));transition:width .25s ease}
+.stage{min-height:465px;padding:26px 22px 24px;text-align:center;display:flex;flex-direction:column;justify-content:center}
+.icon{width:104px;height:104px;border-radius:28px;margin:0 auto 18px;display:grid;place-items:center;font-size:56px;background:var(--soft);border:1px solid #e7dcff;box-shadow:inset 0 0 0 6px rgba(255,255,255,.7)}
+.stage h2{font-size:clamp(29px,6vw,43px);line-height:1.07;margin:0 0 15px;font-weight:950}
+.stage>p{font-size:clamp(20px,4.5vw,28px);line-height:1.45;margin:0 auto 14px;max-width:640px}
+.note{margin:14px auto 0;max-width:630px;padding:14px 16px;border-radius:18px;background:#fff8df;border:1px solid #f6d46a;color:#614b00;font-size:.88em;line-height:1.45;text-align:left}
 .note.green{background:#ebfaef;border-color:#b8e8c3;color:#185b27}
 .note.blue{background:#eaf3ff;border-color:#b8d4ff;color:#163c73}
-.choice-area{
-  display:grid;grid-template-columns:1fr;gap:14px;
-  max-width:620px;width:100%;margin:18px auto 5px
-}
-.choice-btn{
-  min-height:82px;border:0;border-radius:22px;padding:18px;
-  font-size:clamp(22px,4.8vw,30px);font-weight:950;color:#fff;
-  cursor:pointer;box-shadow:0 12px 26px rgba(65,55,130,.14)
-}
+.note.red{background:#fff0f0;border-color:#f2bbbb;color:#7a1d1d}
+.choice-area{display:grid;grid-template-columns:1fr;gap:14px;max-width:620px;width:100%;margin:18px auto 5px}
+.choice-btn{min-height:84px;border:0;border-radius:22px;padding:18px;font-size:clamp(22px,4.8vw,30px);font-weight:950;color:#fff;cursor:pointer;box-shadow:0 12px 26px rgba(65,55,130,.14)}
 .choice-btn.purple{background:linear-gradient(135deg,#7c3aed,#4f46e5)}
 .choice-btn.blue{background:linear-gradient(135deg,#0ea5e9,#2563eb)}
-.choice-hint{
-  color:#5b6474!important;font-size:clamp(17px,3.8vw,22px)!important;
-  max-width:610px!important
-}
-.planner-link{
-  display:block;text-decoration:none;color:#fff;
-  background:linear-gradient(135deg,#16a34a,#22c55e);
-  border-radius:22px;padding:19px 18px;margin:18px auto 8px;
-  max-width:620px;font-size:1.1em;font-weight:950;
-  box-shadow:0 12px 26px rgba(22,163,74,.23)
-}
-.nav{
-  display:grid;grid-template-columns:1fr 1.45fr;gap:12px;
-  padding:0 20px 22px
-}
-.nav button{
-  min-height:62px;border:0;border-radius:18px;
-  font-weight:950;font-size:1.03em;cursor:pointer
-}
+.choice-hint{color:#5b6474!important;font-size:clamp(17px,3.8vw,22px)!important;max-width:610px!important}
+.sequence{width:100%;max-width:640px;margin:16px auto 4px;display:grid;gap:11px;text-align:left}
+.seq{display:grid;grid-template-columns:46px 1fr;gap:12px;align-items:start;padding:14px 15px;border-radius:18px;background:#f8f6ff;border:1px solid #e1d9ff}
+.seqnum{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,var(--purple),var(--blue));color:#fff;font-weight:950;font-size:1.05em}
+.seqtext{font-size:1.03em;line-height:1.38}
+.planner-link{display:block;text-decoration:none;color:#fff;background:linear-gradient(135deg,#16a34a,#22c55e);border-radius:22px;padding:19px 18px;margin:18px auto 8px;max-width:620px;font-size:1.1em;font-weight:950;box-shadow:0 12px 26px rgba(22,163,74,.23)}
+.on-box{margin:15px auto 3px;max-width:620px;padding:16px;border-radius:20px;background:#edf9f0;border:2px solid #bde9c7;color:#175d28;font-weight:950;font-size:1em;line-height:1.45}
+.mini-title{font-size:1.03em;font-weight:950;color:#4f3b7d;margin:14px 0 4px}
+.nav{display:grid;grid-template-columns:1fr 1.45fr;gap:12px;padding:0 20px 22px}
+.nav button{min-height:62px;border:0;border-radius:18px;font-weight:950;font-size:1.03em;cursor:pointer}
 #backBtn{background:#eceff4;color:#394150}
-#nextBtn{
-  background:linear-gradient(135deg,var(--purple),var(--blue));
-  color:#fff;box-shadow:0 10px 24px rgba(75,70,200,.22)
-}
-.hidden{display:none!important}
-.footer-actions{
-  display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:14px
-}
-.footer-actions button{
-  border:1px solid #d9d4e6;background:rgba(255,255,255,.9);
-  color:#4c4760;border-radius:999px;padding:9px 15px;font-weight:850
-}
-.big-check{
-  width:124px;height:124px;border-radius:50%;background:#eaf9ee;
-  border:5px solid #bbebc6;margin:0 auto 18px;
-  display:grid;place-items:center;font-size:72px
-}
-.done-badge{
-  display:inline-block;background:#eaf9ee;color:#167333;
-  border:2px solid #bce7c7;border-radius:999px;
-  padding:7px 14px;font-weight:950;margin-bottom:14px
-}
-.on-box{
-  margin:16px auto 3px;max-width:600px;padding:16px;
-  border-radius:20px;background:#edf9f0;border:2px solid #bde9c7;
-  color:#175d28;font-weight:950;font-size:1.02em
-}
-.route{
-  display:flex;gap:7px;justify-content:center;align-items:center;
-  flex-wrap:wrap;margin-top:16px;font-weight:900;color:#4f3b7d;font-size:.9em
-}
-.route span{
-  background:#f4f0ff;border:1px solid #ddd1ff;
-  border-radius:12px;padding:7px 10px
-}
+#nextBtn{background:linear-gradient(135deg,var(--purple),var(--blue));color:#fff;box-shadow:0 10px 24px rgba(75,70,200,.22)}
+#nextBtn:disabled{background:#d7d9e0;color:#747986;box-shadow:none}
+.footer-actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:14px}
+.footer-actions button{border:1px solid #d9d4e6;background:rgba(255,255,255,.9);color:#4c4760;border-radius:999px;padding:9px 15px;font-weight:850}
+.big-check{width:124px;height:124px;border-radius:50%;background:#eaf9ee;border:5px solid #bbebc6;margin:0 auto 18px;display:grid;place-items:center;font-size:72px}
+.done-badge{display:inline-block;background:#eaf9ee;color:#167333;border:2px solid #bce7c7;border-radius:999px;padding:7px 14px;font-weight:950;margin-bottom:14px}
 @media(max-width:480px){
-  .shell{padding-left:10px;padding-right:10px}
+  .shell{padding-left:9px;padding-right:9px}
   .card{border-radius:23px}
-  .hero{padding:20px 15px 16px}
-  .stage{padding:22px 15px 20px;min-height:440px}
-  .nav{padding-left:14px;padding-right:14px}
-  .icon{width:96px;height:96px;font-size:50px}
+  .hero{padding:19px 14px 16px}
+  .stage{padding:22px 14px 20px;min-height:460px}
+  .nav{padding-left:13px;padding-right:13px}
+  .icon{width:94px;height:94px;font-size:49px}
+  .seq{grid-template-columns:42px 1fr;padding:12px}
+  .seqnum{width:38px;height:38px}
 }
 </style>
 </head>
 <body>
 <div class="shell">
   <div class="topbar">
-    <div class="brand">📱 Palacios Step-by-Step Helper</div>
+    <div class="brand">📱 Palacios Step-by-Step Helper <span class="version">v6</span></div>
     <div class="fonttools">
       <button class="smallbtn" id="fontDown">A−</button>
       <button class="smallbtn" id="fontUp">A+</button>
@@ -190,7 +97,7 @@ button,a{font:inherit}
     <header class="hero">
       <div class="eyebrow">Ana's iPhone Helper</div>
       <h1>Ana Yearly Planner</h1>
-      <p>Use this Helper on the same iPhone you are updating — one action at a time.</p>
+      <p>Look first. Come back. Tell the Helper what you saw.</p>
     </header>
 
     <div class="progress-wrap">
@@ -200,7 +107,7 @@ button,a{font:inherit}
 
     <section class="stage" id="stage" aria-live="polite"></section>
 
-    <nav class="nav" id="nav">
+    <nav class="nav">
       <button id="backBtn">← BACK</button>
       <button id="nextBtn">I DID IT →</button>
     </nav>
@@ -213,335 +120,274 @@ button,a{font:inherit}
 </div>
 
 <script>
-const plannerURL = "https://rpalaciosgithub.github.io/ana-yearly-planner/Ana-Yearly-Planner.html";
+const plannerURL = 'https://rpalaciosgithub.github.io/ana-yearly-planner/Ana-Yearly-Planner.html';
 
-let removalChoice = localStorage.getItem("anaRemovalChoiceV3") || "";
-let shareChoice = localStorage.getItem("anaShareChoiceV3") || "";
+let removalChoice = localStorage.getItem("anaV6Removal") || "";
+let browserChoice = localStorage.getItem("anaV6Browser") || "";
 
-const base = [
-  {
-    id:"intro", type:"intro", icon:"📱", title:"Hi Ana!",
-    body:`Use this Helper <strong>on the same iPhone</strong> where you want to update the Ana Yearly Planner.`,
-    extra:`<div class="on-box">Keep this Helper open in Safari. Later, the new planner will open in another Safari tab.</div>`,
-    note:`Do only the one thing shown on each screen. When the Helper tells you to switch tabs, follow that instruction and then come back here.`,
-    noteClass:"green", next:"LET'S START →"
-  },
-  {
-    id:"find", icon:"📱", title:"Find the old planner",
-    body:`Go to your iPhone <strong>Home Screen</strong> and find the <strong>Ana Yearly Planner</strong> icon.`,
-    note:`When you can see it, come back here and tap <strong>I DID IT</strong>.`
-  },
-  {
-    id:"hold", icon:"👆", title:"Press and hold it",
-    body:`Touch and <strong>hold the Ana Yearly Planner icon</strong> until a menu appears.`,
-    note:`Keep your finger on the icon for a moment.`
-  },
-  {
-    id:"remove-choice", type:"choice-removal", icon:"👀", title:"What do you see?",
-    body:`Look at the menu on your iPhone. Which option appears?`
-  },
-  {
-    id:"open-new", icon:"🌐", title:"Open the NEW planner",
-    body:`You do <strong>not</strong> need another text message from Dad. Tap the green button below.`,
-    extra:`<a class="planner-link" href="${plannerURL}" target="_blank" rel="noopener">OPEN NEW ANA YEARLY PLANNER ↗</a>
-      <div class="on-box">IMPORTANT: The new planner should open in another Safari tab. After it opens, switch back to this <strong>Helper</strong> tab.</div>`,
-    note:`Do not close the Helper. You will use both Safari tabs during the installation.`,
-    noteClass:"green",
-    next:"I'M BACK IN THE HELPER →"
-  },
-  {
-    id:"share-choice", type:"choice-share", icon:"🔄", title:"Go to the planner tab",
-    body:`Now switch to the Safari tab showing the <strong>NEW Ana Yearly Planner</strong>. Look at the bottom-right of that planner screen. What do you see?`,
-    note:`After you identify it, return to this Helper tab and tap the matching button below.`,
-    noteClass:"blue"
-  },
-  {
-    id:"scroll-share", icon:"↕️", title:"Planner tab: scroll down",
-    body:`Switch to the <strong>planner tab</strong>. On the Share screen, scroll down until you see <span class="tap">Add to Home Screen</span>. Then return to this Helper tab.`,
-    note:`Do not tap it yet. Just find it, then come back here.`,
-    noteClass:"blue"
-  },
-  {
-    id:"add-home", icon:"➕", title:"Planner tab: tap Add to Home Screen",
-    body:`Switch to the <strong>planner tab</strong> and tap <span class="tap">Add to Home Screen</span>. Then return to this Helper tab.`,
-    note:`A new screen should appear with the Add button and the Open as Web App option.`,
-    noteClass:"blue"
-  },
-  {
-    id:"webapp", icon:"🟢", title:"Planner tab: make sure this is ON",
-    body:`Switch to the <strong>planner tab</strong> and find <span class="tap">Open as Web App</span>.`,
-    extra:`<div class="on-box">If the switch is gray, tap it so it turns GREEN.<br>If it is already green, leave it ON.</div>`,
-    note:`After checking it, return to the Helper tab. Do not tap Add yet.`,
-    noteClass:"green"
-  },
-  {
-    id:"tap-add", icon:"✅", title:"Final installation step",
-    body:`Switch to the <strong>planner tab</strong> and tap <span class="tap">Add</span>.`,
-    note:`The new Ana Yearly Planner icon should appear on the Home Screen. After that, open the new planner icon once to test it.`,
-    noteClass:"green"
-  },
-  {
-    id:"done", type:"done", title:"ANOTHER SUCCESS!",
-    body:`The newest <strong>Ana Yearly Planner</strong> should now appear as an icon on the Home Screen.`,
-    extra:`<div class="big-check">✓</div><div class="done-badge">UPDATE COMPLETE</div>`,
-    note:`Tap the new icon once to make sure the planner opens. That's it!`,
-    noteClass:"green", next:"FINISHED ✓"
-  }
-];
+function screens(){
+  const arr = [
+    {
+      id:"intro", intro:true, icon:"📱", title:"Hi Ana!",
+      body:`This Helper will help you replace the old Ana Yearly Planner with the newest version.`,
+      extra:`<div class="on-box">You will sometimes go look at something on the iPhone, then come back and tell the Helper what you saw.</div>`,
+      note:`You do not have to memorize both possibilities. The Helper will give you only the instructions you need.`,
+      noteClass:"green", next:"LET'S START →"
+    },
+    {
+      id:"find", icon:"🔎", title:"Find the old planner",
+      body:`Go to the Home Screen and find the <strong>Ana Yearly Planner</strong> icon.`,
+      note:`When you find it, return here and tap <strong>I DID IT</strong>.`, noteClass:"blue"
+    },
+    {
+      id:"inspect-delete", icon:"👀", title:"Look — don't delete yet",
+      body:`Go to the old planner icon and <strong>press and hold it</strong>.`,
+      extra:`<div class="on-box">Do NOT tap anything yet.<br><br>Look for either:<br><strong>Remove App</strong><br>or<br><strong>Delete Bookmark</strong></div>`,
+      note:`Remember which one you saw. Then return to the Helper. It is okay if that menu disappears.`,
+      noteClass:"blue", next:"I SAW THE MENU →"
+    },
+    {
+      id:"delete-choice", choice:"delete", icon:"❓", title:"What did you see?",
+      body:`Tap the button that matches the option you saw on the iPhone.`
+    }
+  ];
 
-function removalSteps(){
   if(removalChoice === "bookmark"){
-    return [
-      {
-        id:"bookmark-tap", icon:"🔖", title:"Tap Delete Bookmark",
-        body:`Tap <span class="tap">Delete Bookmark</span>.`
-      },
-      {
-        id:"bookmark-confirm", icon:"⚠️", title:"Confirm the deletion",
-        body:`A confirmation screen appears. Tap <span class="tap">Delete</span>.`,
-        note:`Do not tap Cancel.`,
-        noteClass:"blue"
-      },
-      {
-        id:"removed", icon:"✅", title:"Old planner removed",
-        body:`The old Ana Yearly Planner icon should now be <strong>gone from the Home Screen</strong>.`,
-        note:`If it is gone, tap <strong>I DID IT</strong>.`,
-        noteClass:"green"
-      }
-    ];
+    arr.push({
+      id:"delete-bookmark", icon:"🔖", title:"Your exact delete path",
+      body:`Now go back to the old planner and do only this sequence:`,
+      extra:`
+        <div class="sequence">
+          <div class="seq"><div class="seqnum">1</div><div class="seqtext"><strong>Press and hold</strong> the planner icon again.</div></div>
+          <div class="seq"><div class="seqnum">2</div><div class="seqtext">Tap <strong>Delete Bookmark</strong>.</div></div>
+          <div class="seq"><div class="seqnum">3</div><div class="seqtext">Tap <strong>Delete</strong> to confirm.</div></div>
+        </div>`,
+      note:`Return to the Helper only after the old planner icon disappears.`,
+      noteClass:"green", next:"OLD PLANNER IS GONE →"
+    });
+  } else if(removalChoice === "remove"){
+    arr.push({
+      id:"delete-app", icon:"🗑️", title:"Your exact delete path",
+      body:`Now go back to the old planner and do only this sequence:`,
+      extra:`
+        <div class="sequence">
+          <div class="seq"><div class="seqnum">1</div><div class="seqtext"><strong>Press and hold</strong> the planner icon again.</div></div>
+          <div class="seq"><div class="seqnum">2</div><div class="seqtext">Tap <strong>Remove App</strong>.</div></div>
+          <div class="seq"><div class="seqnum">3</div><div class="seqtext">Tap <strong>Delete App</strong>, then tap <strong>Delete</strong>.</div></div>
+        </div>`,
+      note:`Return to the Helper only after the old planner icon disappears.`,
+      noteClass:"green", next:"OLD PLANNER IS GONE →"
+    });
   }
-  if(removalChoice === "remove"){
-    return [
+
+  if(removalChoice){
+    arr.push(
       {
-        id:"remove-app", icon:"🗑️", title:"Tap Remove App",
-        body:`Tap <span class="tap">Remove App</span>.`
+        id:"open-new", icon:"🌐", title:"Open the NEW planner",
+        body:`You do <strong>not</strong> need another text message from Dad. Tap the green button below.`,
+        extra:`<a class="planner-link" href="${plannerURL}" target="_blank" rel="noopener">OPEN NEW ANA YEARLY PLANNER ↗</a>`,
+        note:`When the new planner is open, return to this Helper before doing anything else.`,
+        noteClass:"blue", next:"NEW PLANNER IS OPEN →"
       },
       {
-        id:"delete-app", icon:"🗑️", title:"Tap Delete App",
-        body:`Tap <span class="tap">Delete App</span>.`
+        id:"inspect-browser", icon:"👀", title:"Look at the bottom-right",
+        body:`Go to the <strong>new planner</strong>. Look at the bottom-right of the screen.`,
+        extra:`<div class="on-box">Do NOT tap anything yet.<br><br>Do you see:<br><strong>••• THREE DOTS</strong><br>or<br><strong>SHARE</strong>?</div>`,
+        note:`Remember what you saw, then return to the Helper.`,
+        noteClass:"blue", next:"I LOOKED →"
       },
       {
-        id:"delete-confirm", icon:"⚠️", title:"Confirm the deletion",
-        body:`Tap <span class="tap">Delete</span> to confirm.`,
-        note:`The old Ana Yearly Planner icon should disappear.`,
-        noteClass:"green"
+        id:"browser-choice", choice:"browser", icon:"❓", title:"What did you see?",
+        body:`Tap the button that matches what you saw at the bottom-right.`
       }
-    ];
+    );
   }
-  return [];
+
+  if(browserChoice){
+    const shareStart = browserChoice === "dots"
+      ? `<div class="seq"><div class="seqnum">1</div><div class="seqtext">Tap <strong>•••</strong>, then tap <strong>Share</strong>.</div></div>`
+      : `<div class="seq"><div class="seqnum">1</div><div class="seqtext">Tap <strong>Share</strong>.</div></div>`;
+
+    arr.push({
+      id:"install", icon:"➕", title:"Install the new planner",
+      body:`You already know how to open the Share screen. Now follow only this path:`,
+      extra:`
+        <div class="sequence">
+          ${shareStart}
+          <div class="seq"><div class="seqnum">2</div><div class="seqtext">Scroll down and tap <strong>Add to Home Screen</strong>.</div></div>
+          <div class="seq"><div class="seqnum">3</div><div class="seqtext">Make sure <strong>Open as Web App</strong> is ON/green, then tap <strong>Add</strong>.</div></div>
+        </div>`,
+      note:`Stay with this sequence until the new planner icon appears on the Home Screen.`,
+      noteClass:"green", next:"NEW ICON IS ON HOME SCREEN →"
+    });
+
+    arr.push({
+      id:"verify", icon:"✅", title:"Test the new planner",
+      body:`Tap the new <strong>Ana Yearly Planner</strong> icon on the Home Screen.`,
+      note:`Make sure it opens correctly. Then return here one last time.`,
+      noteClass:"blue", next:"IT WORKS! →"
+    });
+
+    arr.push({
+      id:"done", done:true, title:"ANOTHER SUCCESS!",
+      body:`The newest <strong>Ana Yearly Planner</strong> is installed and working.`,
+      extra:`<div class="big-check">✓</div><div class="done-badge">UPDATE COMPLETE</div>`,
+      note:`The UNhelper has been fired. 😄`, noteClass:"green", next:"FINISHED ✓"
+    });
+  }
+
+  return arr;
 }
 
-function shareSteps(){
-  if(shareChoice === "dots"){
-    return [
-      {
-        id:"tap-dots", icon:"•••", title:"Planner tab: tap the three dots",
-        body:`Switch to the <strong>planner tab</strong>. At the bottom-right, tap <span class="tap">•••</span>. Then return to this Helper tab.`,
-        note:`Planner tab → tap ••• → come back to Helper.`,
-        noteClass:"blue"
-      },
-      {
-        id:"tap-share", icon:"⬆️", title:"Planner tab: tap Share",
-        body:`Switch to the <strong>planner tab</strong>. On the menu that is open, tap <span class="tap">Share</span>. Then return to this Helper tab.`,
-        note:`Planner tab → Share → come back to Helper.`,
-        noteClass:"blue"
-      }
-    ];
-  }
-  if(shareChoice === "share"){
-    return [
-      {
-        id:"tap-share-direct", icon:"⬆️", title:"Planner tab: tap Share",
-        body:`Switch to the <strong>planner tab</strong>, tap the <span class="tap">Share</span> button, then return to this Helper tab.`,
-        note:`Planner tab → Share → come back to Helper.`,
-        noteClass:"blue"
-      }
-    ];
-  }
-  return [];
-}
+let currentId = localStorage.getItem("anaV6Screen") || "intro";
+let scale = Number(localStorage.getItem("anaV6Font") || 1);
+if(!Number.isFinite(scale)) scale=1;
+scale=Math.min(1.3,Math.max(.9,scale));
+document.documentElement.style.setProperty("--scale",scale);
 
-function buildFlow(){
-  const flow = [];
-  flow.push(base[0], base[1], base[2], base[3]);
-  flow.push(...removalSteps());
-  flow.push(base[4], base[5]);
-  flow.push(...shareSteps());
-  flow.push(base[6], base[7], base[8], base[9], base[10]);
-  return flow;
-}
-
-let currentId = localStorage.getItem("anaCurrentScreenV3") || "intro";
-let scale = Number(localStorage.getItem("anaFontV3") || 1);
-if(!Number.isFinite(scale)) scale = 1;
-scale = Math.min(1.3, Math.max(.9, scale));
-document.documentElement.style.setProperty("--scale", scale);
-
-const stage = document.getElementById("stage");
-const stepLabel = document.getElementById("stepLabel");
-const bar = document.getElementById("bar");
-const nav = document.getElementById("nav");
-const backBtn = document.getElementById("backBtn");
-const nextBtn = document.getElementById("nextBtn");
+const stage=document.getElementById("stage");
+const stepLabel=document.getElementById("stepLabel");
+const bar=document.getElementById("bar");
+const backBtn=document.getElementById("backBtn");
+const nextBtn=document.getElementById("nextBtn");
 
 function getIndex(flow){
-  let i = flow.findIndex(x => x.id === currentId);
-  if(i < 0){
-    currentId = "intro";
-    i = 0;
-  }
+  let i=flow.findIndex(s=>s.id===currentId);
+  if(i<0){currentId="intro";i=0;}
   return i;
 }
 
 function render(){
-  const flow = buildFlow();
-  let idx = getIndex(flow);
-  const s = flow[idx];
+  const flow=screens();
+  const idx=getIndex(flow);
+  const s=flow[idx];
+  const isChoice=!!s.choice;
+  const isDone=!!s.done;
 
-  const isIntro = s.type === "intro";
-  const isDone = s.type === "done";
-  const isChoice = s.type === "choice-removal" || s.type === "choice-share";
+  if(s.intro){stepLabel.textContent="READY TO BEGIN";bar.style.width="0%";}
+  else if(isDone){stepLabel.textContent="ALL STEPS COMPLETE";bar.style.width="100%";}
+  else{stepLabel.textContent=`STEP ${idx}`;bar.style.width=`${Math.max(5,(idx/(flow.length-1))*100)}%`;}
 
-  if(isIntro){
-    stepLabel.textContent = "READY TO BEGIN";
-    bar.style.width = "0%";
-  }else if(isDone){
-    stepLabel.textContent = "ALL STEPS COMPLETE";
-    bar.style.width = "100%";
-  }else{
-    stepLabel.textContent = `STEP ${idx}`;
-    bar.style.width = `${Math.max(4,(idx/(flow.length-1))*100)}%`;
-  }
-
-  let extra = s.extra || "";
-
-  if(s.type === "choice-removal"){
-    extra = `
+  let extra=s.extra||"";
+  if(s.choice==="delete"){
+    extra=`
       <div class="choice-area">
-        <button class="choice-btn purple" data-removal="remove">🗑️ REMOVE APP</button>
-        <button class="choice-btn blue" data-removal="bookmark">🔖 DELETE BOOKMARK</button>
+        <button class="choice-btn purple" data-delete="remove">🗑️ REMOVE APP</button>
+        <button class="choice-btn blue" data-delete="bookmark">🔖 DELETE BOOKMARK</button>
       </div>
-      <p class="choice-hint">Tap the button that matches exactly what your iPhone shows.</p>
-    `;
+      <p class="choice-hint">Choose only what you actually saw.</p>`;
   }
-
-  if(s.type === "choice-share"){
-    extra = `
+  if(s.choice==="browser"){
+    extra=`
       <div class="choice-area">
-        <button class="choice-btn purple" data-share="dots">••• THREE DOTS</button>
-        <button class="choice-btn blue" data-share="share">⬆️ SHARE BUTTON</button>
+        <button class="choice-btn purple" data-browser="dots">••• THREE DOTS</button>
+        <button class="choice-btn blue" data-browser="share">⬆️ SHARE</button>
       </div>
-      <p class="choice-hint">Tap the one that matches what you see.</p>
-    `;
+      <p class="choice-hint">Choose only what you actually saw.</p>`;
   }
 
-  stage.innerHTML = `
-    ${isDone ? (s.extra || "") : `<div class="icon">${s.icon || "✓"}</div>`}
+  stage.innerHTML=`
+    ${isDone ? (s.extra||"") : `<div class="icon">${s.icon||"✓"}</div>`}
     <h2>${s.title}</h2>
-    <p>${s.body || ""}</p>
-    ${!isDone ? extra : ""}
-    ${s.note ? `<div class="note ${s.noteClass || ""}">${s.note}</div>` : ""}
+    <p>${s.body||""}</p>
+    ${!isDone?extra:""}
+    ${s.note?`<div class="note ${s.noteClass||""}">${s.note}</div>`:""}
   `;
 
-  nav.classList.toggle("hidden", isChoice);
+  backBtn.disabled=idx===0;
+  backBtn.style.opacity=idx===0?".45":"1";
 
-  if(!isChoice){
-    backBtn.disabled = idx === 0;
-    backBtn.style.opacity = idx === 0 ? ".45" : "1";
-    nextBtn.textContent = s.next || (isDone ? "FINISHED ✓" : "I DID IT →");
-    nextBtn.style.background = isDone
-      ? "linear-gradient(135deg,#16a34a,#22c55e)"
-      : "linear-gradient(135deg,#7c3aed,#2563eb)";
+  if(isChoice){
+    nextBtn.disabled=true;
+    nextBtn.textContent="CHOOSE ABOVE";
+  }else{
+    nextBtn.disabled=false;
+    nextBtn.textContent=s.next||(isDone?"FINISHED ✓":"I DID IT →");
+    nextBtn.style.background=isDone
+      ?"linear-gradient(135deg,#16a34a,#22c55e)"
+      :"linear-gradient(135deg,#7c3aed,#2563eb)";
   }
 
-  document.querySelectorAll("[data-removal]").forEach(btn=>{
+  document.querySelectorAll("[data-delete]").forEach(btn=>{
     btn.addEventListener("click",()=>{
-      removalChoice = btn.dataset.removal;
-      localStorage.setItem("anaRemovalChoiceV3", removalChoice);
-      const f = buildFlow();
-      const i = f.findIndex(x=>x.id==="remove-choice");
-      currentId = f[i+1].id;
-      saveAndRender();
+      removalChoice=btn.dataset.delete;
+      localStorage.setItem("anaV6Removal",removalChoice);
+      const f=screens();
+      const choiceIndex=f.findIndex(x=>x.id==="delete-choice");
+      currentId=f[choiceIndex+1].id;
+      saveRender();
     });
   });
 
-  document.querySelectorAll("[data-share]").forEach(btn=>{
+  document.querySelectorAll("[data-browser]").forEach(btn=>{
     btn.addEventListener("click",()=>{
-      shareChoice = btn.dataset.share;
-      localStorage.setItem("anaShareChoiceV3", shareChoice);
-      const f = buildFlow();
-      const i = f.findIndex(x=>x.id==="share-choice");
-      currentId = f[i+1].id;
-      saveAndRender();
+      browserChoice=btn.dataset.browser;
+      localStorage.setItem("anaV6Browser",browserChoice);
+      const f=screens();
+      const choiceIndex=f.findIndex(x=>x.id==="browser-choice");
+      currentId=f[choiceIndex+1].id;
+      saveRender();
     });
   });
 
-  localStorage.setItem("anaCurrentScreenV3", currentId);
+  localStorage.setItem("anaV6Screen",currentId);
   window.scrollTo({top:0,behavior:"smooth"});
 }
 
-function saveAndRender(){
-  localStorage.setItem("anaCurrentScreenV3", currentId);
+function saveRender(){
+  localStorage.setItem("anaV6Screen",currentId);
   render();
 }
 
 nextBtn.addEventListener("click",()=>{
-  const flow = buildFlow();
-  const idx = getIndex(flow);
-  if(idx < flow.length - 1){
-    currentId = flow[idx+1].id;
-    saveAndRender();
-  }else{
-    alert("Another success! 🎉");
-  }
+  if(nextBtn.disabled)return;
+  const flow=screens();
+  const idx=getIndex(flow);
+  if(idx<flow.length-1){currentId=flow[idx+1].id;saveRender();}
+  else alert("Another success! 🎉");
 });
 
 backBtn.addEventListener("click",()=>{
-  const flow = buildFlow();
-  const idx = getIndex(flow);
-  if(idx > 0){
-    currentId = flow[idx-1].id;
-    saveAndRender();
-  }
+  const flow=screens();
+  const idx=getIndex(flow);
+  if(idx>0){currentId=flow[idx-1].id;saveRender();}
 });
 
 document.getElementById("restartBtn").addEventListener("click",()=>{
-  if(confirm("Start the instructions again from the beginning?")){
-    currentId = "intro";
-    removalChoice = "";
-    shareChoice = "";
-    localStorage.removeItem("anaRemovalChoiceV3");
-    localStorage.removeItem("anaShareChoiceV3");
-    saveAndRender();
+  if(confirm("Start again from the beginning?")){
+    removalChoice="";
+    browserChoice="";
+    currentId="intro";
+    localStorage.removeItem("anaV6Removal");
+    localStorage.removeItem("anaV6Browser");
+    saveRender();
   }
 });
 
 document.getElementById("helpBtn").addEventListener("click",()=>{
-  alert(
-`HELP
+  alert(`HELP
 
-• This version is designed to run on the SAME iPhone you are updating.
-• Keep the Helper open in one Safari tab.
-• The new planner opens in another Safari tab.
-• When a step says PLANNER TAB, switch to the planner, do that one action, then return to the Helper tab.
-• Use BACK if you need the previous instruction.
-• Use A− or A+ to change text size.
+The v6 rule is:
 
-Tested installation path:
-••• → Share → scroll down → Add to Home Screen → Open as Web App ON → Add`
-  );
+LOOK FIRST
+→ COME BACK
+→ TELL THE HELPER WHAT YOU SAW
+→ GET ONLY YOUR INSTRUCTIONS
+
+BACK stays available on every screen.
+
+The Helper never makes you read both deletion paths at once.`);
 });
 
 document.getElementById("fontDown").addEventListener("click",()=>{
-  scale = Math.max(.9, +(scale-.1).toFixed(1));
-  document.documentElement.style.setProperty("--scale", scale);
-  localStorage.setItem("anaFontV3", scale);
+  scale=Math.max(.9,+(scale-.1).toFixed(1));
+  document.documentElement.style.setProperty("--scale",scale);
+  localStorage.setItem("anaV6Font",scale);
 });
-
 document.getElementById("fontUp").addEventListener("click",()=>{
-  scale = Math.min(1.3, +(scale+.1).toFixed(1));
-  document.documentElement.style.setProperty("--scale", scale);
-  localStorage.setItem("anaFontV3", scale);
+  scale=Math.min(1.3,+(scale+.1).toFixed(1));
+  document.documentElement.style.setProperty("--scale",scale);
+  localStorage.setItem("anaV6Font",scale);
 });
 
 render();
