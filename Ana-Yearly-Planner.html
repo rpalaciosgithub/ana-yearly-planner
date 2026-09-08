@@ -47,9 +47,9 @@ body{background-color:#FFF8E8;background-image:radial-gradient(#E8DDBD 1px,trans
   .surpriseInfo button{padding:10px 18px;font-size:16px;}
 }
 
-/* INSTALL-THIS-PLANNER GUIDE (added for iPhone update workflow) */
+/* INSTALL-THIS-PLANNER GUIDE v8 (added for iPhone update workflow) */
 .installGuide{max-width:980px;margin:18px auto 8px;padding:18px;border:3px solid #C9982F;border-radius:18px;background:#FFF8DE;box-shadow:0 8px 24px #0002;color:#1E2A3A}
-.installGuide[hidden]{display:none!important}.installGuide h2{font:800 clamp(25px,6vw,36px) var(--display);margin:0 0 8px;text-align:center;color:#8A4B12}.installLead{text-align:center;font-size:calc(18px*var(--scale));line-height:1.45;margin:0 auto 15px;max-width:760px}.installBranches{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0}.installBranch{background:#fff;border:2px solid var(--line);border-radius:14px;padding:14px}.installBranch h3{font-size:calc(18px*var(--scale));margin:0 0 8px}.installBranch p{font-size:calc(17px*var(--scale));line-height:1.45;margin:0}.installCommon{background:#fff;border:2px solid #B7D8D3;border-radius:14px;padding:14px;margin-top:12px}.installCommon h3{margin:0 0 9px;color:var(--teal);font-size:calc(19px*var(--scale))}.installCommon ol{margin:0;padding-left:24px}.installCommon li{font-size:calc(17px*var(--scale));line-height:1.5;margin:6px 0}.installOn{display:inline-block;background:#E9F8ED;border:2px solid #98D5A6;border-radius:9px;padding:2px 7px;font-weight:900;color:#185B27}.installClose{display:block;margin:15px auto 0;background:var(--ink);color:#fff;border:0;border-radius:999px;padding:11px 18px;font-weight:900}.installTiny{text-align:center;color:var(--soft);font-size:calc(13px*var(--scale));margin:10px 0 0}
+.installGuide[hidden]{display:none!important}.installGuide h2{font:800 clamp(25px,6vw,36px) var(--display);margin:0 0 8px;text-align:center;color:#8A4B12}.installLead{text-align:center;font-size:calc(18px*var(--scale));line-height:1.45;margin:0 auto 15px;max-width:760px}.installBranches{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0}.installBranch{background:#fff;border:2px solid var(--line);border-radius:14px;padding:14px}.installBranch h3{font-size:calc(18px*var(--scale));margin:0 0 8px}.installBranch p{font-size:calc(17px*var(--scale));line-height:1.45;margin:0}.installCommon{background:#fff;border:2px solid #B7D8D3;border-radius:14px;padding:14px;margin-top:12px}.installCommon h3{margin:0 0 9px;color:var(--teal);font-size:calc(19px*var(--scale))}.installCommon ol{margin:0;padding-left:24px}.installCommon li{font-size:calc(17px*var(--scale));line-height:1.5;margin:6px 0}.installOn{display:inline-block;background:#E9F8ED;border:2px solid #98D5A6;border-radius:9px;padding:2px 7px;font-weight:900;color:#185B27}.installClose{display:block;margin:15px auto 0;background:var(--ink);color:#fff;border:0;border-radius:999px;padding:11px 18px;font-weight:900}.installTiny{text-align:center;color:var(--soft);font-size:calc(13px*var(--scale));margin:10px 0 0}.installCommon .on-box{background:#EAF8ED;border:2px solid #9BD4A8;border-radius:14px;padding:13px;color:#185B27;line-height:1.45;font-size:calc(16px*var(--scale));}
 @media(max-width:620px){.installGuide{margin:12px 10px 6px;padding:15px}.installBranches{grid-template-columns:1fr}.installGuide h2{font-size:28px}.installLead{font-size:17px}.installBranch p,.installCommon li{font-size:16px}}
 </style>
 </head>
@@ -73,6 +73,11 @@ body{background-color:#FFF8E8;background-image:radial-gradient(#E8DDBD 1px,trans
       <li>Make sure <strong>Open as Web App</strong> is <span class="installOn">ON / GREEN</span>. If it is gray, tap it to turn it on.</li>
       <li>Tap <strong>Add</strong>.</li>
     </ol>
+    <div class="on-box" style="margin-top:14px">
+      <strong>ALL DONE!</strong><br>
+      The new Ana Yearly Planner will appear on the Home Screen.<br><br>
+      If you later open Safari and see the Step-by-Step Helper still there, you can <strong>close that Helper tab</strong>.
+    </div>
   </div>
   <button class="installClose" type="button" onclick="hideInstallGuide()">Hide these instructions</button>
   <p class="installTiny">After installation, the planner opens normally without this instruction card.</p>
