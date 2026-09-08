@@ -46,10 +46,58 @@ body{background-color:#FFF8E8;background-image:radial-gradient(#E8DDBD 1px,trans
   .surpriseInfo h2{font-size:clamp(22px,6vw,30px);margin:0 0 7px;}
   .surpriseInfo button{padding:10px 18px;font-size:16px;}
 }
+
+/* INSTALL-THIS-PLANNER GUIDE (added for iPhone update workflow) */
+.installGuide{max-width:980px;margin:18px auto 8px;padding:18px;border:3px solid #C9982F;border-radius:18px;background:#FFF8DE;box-shadow:0 8px 24px #0002;color:#1E2A3A}
+.installGuide[hidden]{display:none!important}.installGuide h2{font:800 clamp(25px,6vw,36px) var(--display);margin:0 0 8px;text-align:center;color:#8A4B12}.installLead{text-align:center;font-size:calc(18px*var(--scale));line-height:1.45;margin:0 auto 15px;max-width:760px}.installBranches{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0}.installBranch{background:#fff;border:2px solid var(--line);border-radius:14px;padding:14px}.installBranch h3{font-size:calc(18px*var(--scale));margin:0 0 8px}.installBranch p{font-size:calc(17px*var(--scale));line-height:1.45;margin:0}.installCommon{background:#fff;border:2px solid #B7D8D3;border-radius:14px;padding:14px;margin-top:12px}.installCommon h3{margin:0 0 9px;color:var(--teal);font-size:calc(19px*var(--scale))}.installCommon ol{margin:0;padding-left:24px}.installCommon li{font-size:calc(17px*var(--scale));line-height:1.5;margin:6px 0}.installOn{display:inline-block;background:#E9F8ED;border:2px solid #98D5A6;border-radius:9px;padding:2px 7px;font-weight:900;color:#185B27}.installClose{display:block;margin:15px auto 0;background:var(--ink);color:#fff;border:0;border-radius:999px;padding:11px 18px;font-weight:900}.installTiny{text-align:center;color:var(--soft);font-size:calc(13px*var(--scale));margin:10px 0 0}
+@media(max-width:620px){.installGuide{margin:12px 10px 6px;padding:15px}.installBranches{grid-template-columns:1fr}.installGuide h2{font-size:28px}.installLead{font-size:17px}.installBranch p,.installCommon li{font-size:16px}}
 </style>
 </head>
-<body><div id="app"><div class="top"><div class="brand"><span class="stamp">✓</span>Ana María Palacios Yearly Planner</div><div class="tools"><button id="minus">A−</button> <button id="plus">A+</button></div></div><main class="planner"><div class="head"><h1>Ana María Palacios’s Yearly Planner</h1><p>by Dad</p></div><div class="toolbar"><button class="light" onclick="moveMonth(-1)">← Previous</button><button class="secondary" onclick="goToday()">Today</button><button class="light" onclick="moveMonth(1)">Next →</button><select id="monthPick" onchange="pickDate()"></select><select id="yearPick" onchange="pickDate()"></select><button class="primary" onclick="openModal()">＋ Add Dated Item</button></div><h2 class="monthTitle" id="monthTitle"></h2><div class="calendar" id="calendar"></div><section class="upcoming"><h2>Upcoming Important Dates</h2><p>The next 12 unfinished items from today forward.</p><div id="upcoming"></div></section><div class="footer">Created for Ana María Palacios — senior year, sweet moments, goals, and bright plans.</div></main></div>
+<body><div id="app"><div class="top"><div class="brand"><span class="stamp">✓</span>Ana María Palacios Yearly Planner</div><div class="tools"><button id="minus">A−</button> <button id="plus">A+</button></div></div><main class="planner"><section id="installGuide" class="installGuide" hidden aria-label="Install this planner instructions">
+  <h2>📱 INSTALL THIS PLANNER</h2>
+  <p class="installLead"><strong>Stay in this planner.</strong> Use the instructions below to add the newest Ana Yearly Planner to your Home Screen.</p>
+  <div class="installBranches">
+    <div class="installBranch">
+      <h3>••• If you see THREE DOTS</h3>
+      <p><strong>Tap ••• → Tap Share</strong></p>
+    </div>
+    <div class="installBranch">
+      <h3>⬆️ If you see SHARE</h3>
+      <p><strong>Tap Share</strong></p>
+    </div>
+  </div>
+  <div class="installCommon">
+    <h3>Then everyone follows the same path:</h3>
+    <ol>
+      <li>Scroll down and tap <strong>Add to Home Screen</strong>.</li>
+      <li>Make sure <strong>Open as Web App</strong> is <span class="installOn">ON / GREEN</span>. If it is gray, tap it to turn it on.</li>
+      <li>Tap <strong>Add</strong>.</li>
+    </ol>
+  </div>
+  <button class="installClose" type="button" onclick="hideInstallGuide()">Hide these instructions</button>
+  <p class="installTiny">After installation, the planner opens normally without this instruction card.</p>
+</section><div class="head"><h1>Ana María Palacios’s Yearly Planner</h1><p>by Dad</p></div><div class="toolbar"><button class="light" onclick="moveMonth(-1)">← Previous</button><button class="secondary" onclick="goToday()">Today</button><button class="light" onclick="moveMonth(1)">Next →</button><select id="monthPick" onchange="pickDate()"></select><select id="yearPick" onchange="pickDate()"></select><button class="primary" onclick="openModal()">＋ Add Dated Item</button></div><h2 class="monthTitle" id="monthTitle"></h2><div class="calendar" id="calendar"></div><section class="upcoming"><h2>Upcoming Important Dates</h2><p>The next 12 unfinished items from today forward.</p><div id="upcoming"></div></section><div class="footer">Created for Ana María Palacios — senior year, sweet moments, goals, and bright plans.</div></main></div>
 <script>
+// Show the temporary installation guide only when opened from the Step-by-Step Helper.
+(function(){
+  try{
+    const u=new URL(window.location.href);
+    if(u.searchParams.get('install')==='1'){
+      const guide=document.getElementById('installGuide');
+      if(guide) guide.hidden=false;
+      u.searchParams.delete('install');
+      const clean=u.pathname + (u.searchParams.toString()?('?'+u.searchParams.toString()):'') + u.hash;
+      history.replaceState(null,'',clean);
+      setTimeout(()=>guide && guide.scrollIntoView({behavior:'smooth',block:'start'}),100);
+    }
+  }catch(e){}
+})();
+function hideInstallGuide(){
+  const guide=document.getElementById('installGuide');
+  if(guide) guide.hidden=true;
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
 const STORAGE_KEY='anaMariaPalaciosYearlyPlannerV2';
 const PROFILE='ana';
 const MONTHS=['January','February','March','April','May','June','July','August','September','October','November','December'];
